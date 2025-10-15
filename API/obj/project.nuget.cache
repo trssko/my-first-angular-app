@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "Gpnwb89uXYY=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\trssko\\angular_app\\API\\API.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\trssko\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.9\\microsoft.aspnetcore.openapi.9.0.9.nupkg.sha512",
+    "C:\\Users\\trssko\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}
