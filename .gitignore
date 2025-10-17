@@ -89,5 +89,5 @@ desktop.ini
 *.orig
 *.old
 *.rsuser
-API/appsettings.json
-API/dating.db*
+#API/appsettings.json
+#API/dating.db*
