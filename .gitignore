@@ -90,4 +90,4 @@ desktop.ini
 *.old
 *.rsuser
 #API/appsettings.json
-#API/dating.db*
+!API/dating.db
