@@ -20,7 +20,7 @@ obj/
 *.exe
 *.pdb
 *.cache
-*.db
+*.db*
 *.log
 *.json.cache
 *.nuget.props
