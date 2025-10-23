@@ -1,3 +1,5 @@
 npm install tailwindcss @tailwindcss/postcss in /client
 npm i -D daisyui@latest - wherever
 Tailwind CSS IntelliSense - extension
+
+---- done ----
