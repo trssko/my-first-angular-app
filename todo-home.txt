@@ -3,3 +3,7 @@ npm i -D daisyui@latest - wherever
 Tailwind CSS IntelliSense - extension
 
 ---- done ----
+
+28.10.2025
+terminal -> nuget -> system.identitymodel.tokens.jwt install (turn off prerelease checkbox)
+terminal -> nuget -> microsoft.identitymodel.tokens install
