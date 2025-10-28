@@ -4,14 +4,15 @@ using System.Text;
 using API.Data;
 using API.DTOs;
 using API.Entities;
+using API.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers;
-public class AccountController(AppDbContext context) : BaseApiController
+public class AccountController(AppDbContext context, ITokenService tokenService) : BaseApiController
 {
     [HttpPost("register")] // api/account/register
-    public async Task<ActionResult<AppUser>> Register(RegisterDTO registerDTO)
+    public async Task<ActionResult<UserDTO>> Register(RegisterDTO registerDTO)
     {
         if (await EmailUsed(registerDTO.Mail)) return BadRequest("Email is already in use.");
 
@@ -28,11 +29,17 @@ public class AccountController(AppDbContext context) : BaseApiController
         context.Users.Add(user);
         await context.SaveChangesAsync();
 
-        return user;
+        return new UserDTO
+        {
+            Id = user.Id,
+            DisplayName = user.DisplayName,
+            Email = user.Mail,
+            Token = tokenService.CreateToken(user)
+        };
     }
 
     [HttpPost("login")] // api/account/login
-    public async Task<ActionResult<AppUser>> Login(LoginDTO loginDTO) {
+    public async Task<ActionResult<UserDTO>> Login(LoginDTO loginDTO) {
         var user = await context.Users.SingleOrDefaultAsync(x => x.Mail == loginDTO.Email);
 
         if (user == null) return Unauthorized("Invalid email address");
@@ -45,7 +52,13 @@ public class AccountController(AppDbContext context) : BaseApiController
             if (computedHash[i] != user.PasswordHash[i]) return Unauthorized("Invalid password");
         }
 
-        return user;
+        return new UserDTO
+        {
+            Email = user.Mail,
+            DisplayName = user.DisplayName,
+            Id = user.Id,
+            Token = tokenService.CreateToken(user)
+        };
     }
     
     private async Task<bool> EmailUsed(string mail)
