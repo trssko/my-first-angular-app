@@ -7,3 +7,6 @@ Tailwind CSS IntelliSense - extension
 28.10.2025
 terminal -> nuget -> system.identitymodel.tokens.jwt install (turn off prerelease checkbox)
 terminal -> nuget -> microsoft.identitymodel.tokens install
+
+29.10.2025
+terminal -> nuget -> microsoft.aspnetcore.authentication.jwtbearer install
