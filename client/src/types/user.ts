@@ -7,12 +7,12 @@ export type User = {
 }
 
 export type LoginCreds = {
-    email: string;
+    mail: string;
     password: string;
 }
 
 export type RegisterCreds = {
-    email: string;
+    mail: string;
     displayName: string;
     password: string;
 }

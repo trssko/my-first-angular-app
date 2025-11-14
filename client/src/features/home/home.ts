@@ -10,9 +10,8 @@ import { User } from '../../types/user';
 })
 export class Home {
   protected registerMode = signal(false);
-  @Input({required: true}) membersFromApp: User[] = [];
 
-  showRegister() {
-    this.registerMode.set(true);
+  showRegister(value: boolean) {
+    this.registerMode.set(value);
   }
 }
